@@ -28,18 +28,11 @@ def fct_lump(f, n=None, other_level='Other', ties_method='first'):
 
     if n is not None and n > 0:
         lump_cutoff = counts[n]
-        new_levels = [level if not in_smallest(level, counts.to_dict(), lump_cutoff) else other_level for level in list(levels)]
-    else:
-        return f
-
-    if other_level in new_levels:
-        new_levels = new_levels[0:new_levels.index('Other') + 1]
-        f = f.cat.set_categories(new_levels)
-        f.fillna('Other')
-
+        print(lump_cutoff)
+        f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff) else other_level)
     return f
 
 # Given vector of counts, returns logical vector if in
 # smallest groups
 def in_smallest(level, counts, cutoff):
-    return counts[level] >= cutoff
+    return counts[level] <= cutoff
