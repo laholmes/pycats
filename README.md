@@ -1,6 +1,8 @@
 # pycats
 Tools for working with categorical variables in Pandas (port of features from R forcats package)
 
+currently in development.
+
 ## installation
 ```
 pip install pycats
