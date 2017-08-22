@@ -8,7 +8,10 @@ pip install pycats
 
 ## usage
 ```
-x = pd.DataFrame({ 'a': [4,1,9,6,2,3,5,7,2,9], 'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']})
+x = pd.DataFrame({ 
+  'a': [4,1,9,6,2,3,5,7,2,9], 
+  'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
+})
 x['b'] = x['b'].astype('category')
 x['b'] = fct_lump(x['b'], 2)
 print(x['b'])
