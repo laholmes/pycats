@@ -17,15 +17,15 @@ x['b'] = fct_lump(x['b'], 2)
 print(x['b'])
 ```
 0      foo  
-1      foo
-2      foo
-3      foo
-4      foo
-5      bar
-6      bar
-7      bar
-8    Other
-9    Other
+1      foo  
+2      foo  
+3      foo  
+4      foo  
+5      bar  
+6      bar  
+7      bar  
+8    Other  
+9    Other  
 
 ## api
 lump.fct_lump
