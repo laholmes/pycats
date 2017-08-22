@@ -16,7 +16,7 @@ x['b'] = x['b'].astype('category')
 x['b'] = fct_lump(x['b'], 2)
 print(x['b'])
 ```
-0      foo \n
+0      foo  
 1      foo
 2      foo
 3      foo
