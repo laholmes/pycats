@@ -8,18 +8,21 @@ pip install pycats
 
 ## usage
 ```
-from pycats import lump
-import pandas as pd
-x = pd.DataFrame({ 'a': [4,6,2,3], 'b': ['foo', 'foo', 'bar', 'baz']})
+x = pd.DataFrame({ 'a': [4,1,9,6,2,3,5,7,2,9], 'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']})
 x['b'] = x['b'].astype('category')
-x['b'] = lump.fct_lump(x['b'], 2)
-x['b']
-
-0    NaN
-1    NaN
-2    bar
-3    baz
+x['b'] = fct_lump(x['b'], 2)
+print(x['b'])
 ```
+0      foo
+1      foo
+2      foo
+3      foo
+4      foo
+5      bar
+6      bar
+7      bar
+8    Other
+9    Other
 
 ## api
 lump.fct_lump
