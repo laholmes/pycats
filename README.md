@@ -19,13 +19,18 @@ import pandas as pd
 from pycats import lump, other    
 ```
 
+## api
+
+### lump.cat_lump  
+port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
+
 ```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9], 
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
 x['b'] = x['b'].astype('category')
-x['b'] = lump.fct_lump(x['b'], 2)
+x['b'] = lump.cat_lump(x['b'], 2)
 print(x['b'])
 ```
 0      foo  
@@ -39,12 +44,15 @@ print(x['b'])
 8      Other  
 9      Other  
 
+### other.cat_other
+port of forcats fct_other - replace levels with other
+
 ```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9],
   b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
-x['b'] = other.fct_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
+x['b'] = other.cat_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
 print(x['b'])
 ```
 0      Other   
@@ -58,6 +66,8 @@ print(x['b'])
 8      Other  
 9      baz2  
 
+### anon.cat_anon
+port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
 
 ```
 x = pd.DataFrame({
@@ -65,7 +75,7 @@ x = pd.DataFrame({
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
 x['b'] = x['b'].astype('category')
-x['b'] = fct_anon(x['b'])
+x['b'] = cat_anon(x['b'])
 print(x['b'])
 ```
 0    1223194  
@@ -80,13 +90,22 @@ print(x['b'])
 9     582436 
 
 
-## api
+### cat_collapse
+port of forcats fct_collapse - Collapse factor levels into manually defined groups
 
-### lump.fct_lump  
-port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
 
-### other.fct_other
-port of forcats fct_other - replace levels with other
+```
+x = pd.DataFrame({
+  'a': [4,1,9,6,2,3,5,7,2,9],
+  'b': ['foo', 'foo', 'foo', 'foo2', 'foo3', 'bar', 'bar', 'bar2', 'baz', 'baz2']
+})
 
-### anon.fct_anon
-port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
+groups = {
+	'other': ['bar2', 'baz'],
+	'cool': ['foo','foo2']
+}
+
+x['b'] = x['b'].astype('category')
+x['b'] = cat_collapse(x['b'], groups)
+print(x['b'])
+```
