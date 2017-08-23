@@ -21,6 +21,18 @@ from pycats import lump, other
 
 ## api
 
+### as_cat.as_cat
+convert a series (column in data frame) to category type
+
+```
+x = pd.DataFrame({ 
+  'a': [4,1,9,6,2,3,5,7,2,9], 
+  'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
+})
+x['b'] = as_cat.as_cat(x['b])
+
+```
+
 ### lump.cat_lump  
 port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
 
