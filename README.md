@@ -10,6 +10,9 @@ pypi package reference here https://pypi.python.org/pypi/pycats/0.1.4
 pip install pycats
 ```
 
+## dependencies
+pandas, numpy
+
 ## usage
 ```
 import pandas as pd
@@ -56,6 +59,27 @@ print(x['b'])
 9      baz2  
 
 
+```
+x = pd.DataFrame({
+  'a': [4,1,9,6,2,3,5,7,2,9],
+  'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
+})
+x['b'] = x['b'].astype('category')
+x['b'] = fct_anon(x['b'])
+print(x['b'])
+```
+0    1223194  
+1    1223194  
+2    1223194  
+3    1223194  
+4    1223194  
+5    6220873   
+6    6220873  
+7    6220873  
+8    2811679  
+9     582436 
+
+
 ## api
 
 ### lump.fct_lump  
@@ -63,3 +87,6 @@ port of forcats fct_lump - Lump together least/most common factor levels in a ca
 
 ### other.fct_other
 port of forcats fct_other - replace levels with other
+
+### anon.fct_anon
+port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
