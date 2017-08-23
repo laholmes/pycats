@@ -12,7 +12,9 @@ pip install pycats
 ```
 import pandas as pd
 from pycats import lump  
+```
 
+```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9], 
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
@@ -20,7 +22,7 @@ x = pd.DataFrame({
 x['b'] = x['b'].astype('category')
 x['b'] = lump.fct_lump(x['b'], 2)
 print(x['b'])
-
+```
 # 0      foo  
 # 1      foo  
 # 2      foo  
@@ -32,14 +34,14 @@ print(x['b'])
 # 8    Other  
 # 9    Other  
 
-
+```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9],
   b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
 x['b'] = fct_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
 print(x['b'])
-
+```
 # 0    Other
 # 1    Other
 # 2    Other
@@ -51,7 +53,6 @@ print(x['b'])
 # 8    Other
 # 9     baz2
 
-```
 
 ## api
 lump.fct_lump  
