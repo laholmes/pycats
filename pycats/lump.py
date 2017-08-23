@@ -17,6 +17,7 @@ import pandas as pd
 #   default = "first"
 
 
+# TODO: add support for ties method
 def fct_lump(f, n=None, other_level='Other', ties_method='first'):
     ties_methods = ['min', 'average', 'first', 'last', 'random']
     if ties_method not in ties_methods:
@@ -28,7 +29,6 @@ def fct_lump(f, n=None, other_level='Other', ties_method='first'):
 
     if n is not None and n > 0:
         lump_cutoff = counts[n]
-        print(lump_cutoff)
         f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff) else other_level)
     return f
 

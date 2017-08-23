@@ -1,6 +1,7 @@
-lump.py
 setup.cfg
 setup.py
+pycats/__init__.py
+pycats/lump.py
 pycats.egg-info/PKG-INFO
 pycats.egg-info/SOURCES.txt
 pycats.egg-info/dependency_links.txt
