@@ -55,8 +55,9 @@ print(x['b'])
 
 
 ## api
-lump.fct_lump  
+
+### lump.fct_lump  
 port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
 
-other.fct_other
+### other.fct_other
 port of forcats fct_other - replace levels with other
