@@ -45,7 +45,7 @@ x['b'] = fct_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
 print(x['b'])
 ```
 0      Other   
-1      Other 
+1      Other  
 2      Other  
 3      Other  
 4      Other  
