@@ -33,8 +33,8 @@ print(x['b'])
 5      bar  
 6      bar  
 7      bar  
-8    Other  
-9    Other  
+8      Other  
+9      Other  
 
 ```
 x = pd.DataFrame({ 
@@ -44,16 +44,16 @@ x = pd.DataFrame({
 x['b'] = fct_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
 print(x['b'])
 ```
-0    Other   
-1    Other 
-2    Other  
-3    Other  
-4    Other  
+0      Other   
+1      Other 
+2      Other  
+3      Other  
+4      Other  
 5      bar  
 6      bar  
 7      bar  
-8    Other  
-9     baz2  
+8      Other  
+9      baz2  
 
 
 ## api
