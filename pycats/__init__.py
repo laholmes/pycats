@@ -1,7 +1,19 @@
-def fct_other(f, keep, drop, other_level = "Other"):
-	f = f.apply(lambda row: row if row in drop else other_level)
+# __all__ = []
 
-import pandas as pd
-x = pd.DataFrame({ 'a': [4,1,9,6,2,3,5,7,2,9], 'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']})
-x['b'] = fct_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
-print(x['b'])
+# import pkgutil
+# import inspect
+
+# for loader, name, is_pkg in pkgutil.walk_packages(__path__):
+#     module = loader.find_module(name).load_module(name)
+
+#     for name, value in inspect.getmembers(module):
+#         if name.startswith('__'):
+#             continue
+
+#         globals()[name] = value
+#         __all__.append(name)
+
+from src import *
+
+__all__ = ['cat_anon', 'cat_lump', 'as_cat', 'cat_collapse',
+           'cat_other']
