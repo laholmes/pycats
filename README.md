@@ -3,6 +3,8 @@ Tools for working with categorical variables in Pandas (port of features from R 
 
 currently in development.
 
+pypi package reference here https://pypi.python.org/pypi/pycats/0.1.4
+
 ## installation
 ```
 pip install pycats
