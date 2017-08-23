@@ -1,9 +1,9 @@
 # pycats :smiley_cat:
 Tools for working with categorical variables in Pandas (port of features from R forcats package - https://cran.r-project.org/web/packages/forcats/index.html)
 
-currently in development.
+currently in development - pre-alpha. Current version 0.1.6
 
-pypi package reference here https://pypi.python.org/pypi/pycats/0.1.4
+pypi package reference here https://pypi.python.org/pypi/pycats/0.1.6
 
 ## installation
 ```
