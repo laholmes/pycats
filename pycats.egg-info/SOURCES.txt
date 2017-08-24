@@ -1,11 +1,6 @@
 setup.cfg
 setup.py
 pycats/__init__.py
-pycats/anon.py
-pycats/as_cat.py
-pycats/collapse.py
-pycats/lump.py
-pycats/other.py
 pycats/src.py
 pycats.egg-info/PKG-INFO
 pycats.egg-info/SOURCES.txt
