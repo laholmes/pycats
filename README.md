@@ -21,7 +21,7 @@ import pycats
 
 ## api
 
-### as_cat.as_cat
+### as_cat
 convert a series (column in data frame) to category type
 
 ```
@@ -33,7 +33,7 @@ x['b'] = pycats.as_cat(x['b'])
 
 ```
 
-### lump.cat_lump  
+### cat_lump  
 port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
 
 ```
@@ -56,7 +56,7 @@ print(x['b'])
 8      Other  
 9      Other  
 
-### other.cat_other
+### cat_other
 port of forcats fct_other - replace levels with other
 
 ```
@@ -78,7 +78,7 @@ print(x['b'])
 8      Other  
 9      baz2  
 
-### anon.cat_anon
+### cat_anon
 port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
 
 ```
