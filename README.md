@@ -27,8 +27,10 @@ convert a series (column in data frame) to a category
 #### arguments   
 x - series to convert to a category  
   
-returns  
+#### returns  
 the category representation of the provided series  
+
+#### example  
 
 ```
 x = pd.DataFrame({ 
@@ -42,14 +44,15 @@ x['b'] = pycats.as_cat(x['b'])
 ### cat_lump(x, n, other_level='Other')  
 port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)  
 
-arguments  
+#### arguments  
 x - category object to lump  
 n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level  
 other_level - name for the 'other' level which factor levels are converted to  
 
-returns  
+#### returns  
 the lumped version of the provided category object  
 
+#### example  
 ```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9], 
@@ -73,13 +76,15 @@ print(x['b'])
 ### cat_other(x, drop, other_level='Other')  
 port of forcats fct_other - replace levels with other  
 
-arguments  
+#### arguments  
 x - category object   
 drop - list of category levels to replace in x  
 other_level - name for the 'other' level which dropped factor levels are converted to  
 
-returns  
+#### returns  
 category object with dropped levels replaced by other_level
+
+#### example  
 ```
 x = pd.DataFrame({ 
   'a': [4,1,9,6,2,3,5,7,2,9],
@@ -102,12 +107,13 @@ print(x['b'])
 ### cat_anon(x)
 port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
 
-arguments  
+#### arguments  
 x - category object  
 
-returns  
+#### returns  
 category object, with each category level replaced by a random number in range [0,10000000]  
 
+#### example  
 ```
 x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9],
@@ -132,6 +138,7 @@ print(x['b'])
 ### cat_collapse
 port of forcats fct_collapse - Collapse factor levels into manually defined groups
 
+#### example  
 ```
 x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9],
