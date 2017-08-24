@@ -24,7 +24,7 @@ import pycats
 ### as_cat(x)
 convert a series (column in data frame) to a category  
 
-arguments   
+#### arguments   
 x - series to convert to a category  
   
 returns  
