@@ -39,7 +39,7 @@ x['b'] = pycats.as_cat(x['b'])
 
 ```
 
-### cat_lump(x, n, other_level='Other') . 
+### cat_lump(x, n, other_level='Other')  
 port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name) . 
 
 arguments . 
