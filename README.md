@@ -22,13 +22,13 @@ import pycats
 ## api
 
 ### as_cat(x)
-convert a series (column in data frame) to a category . 
+convert a series (column in data frame) to a category  
 
 arguments   
-x - series to convert to a category . 
+x - series to convert to a category  
   
-returns . 
-the category representation of the provided series . 
+returns  
+the category representation of the provided series  
 
 ```
 x = pd.DataFrame({ 
@@ -40,15 +40,15 @@ x['b'] = pycats.as_cat(x['b'])
 ```
 
 ### cat_lump(x, n, other_level='Other')  
-port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name) . 
+port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)  
 
-arguments . 
-x - category object to lump . 
-n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level . 
-other_level - name for the 'other' level which factor levels are converted to . 
+arguments  
+x - category object to lump  
+n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level  
+other_level - name for the 'other' level which factor levels are converted to  
 
-returns . 
-the lumped version of the provided category object . 
+returns  
+the lumped version of the provided category object  
 
 ```
 x = pd.DataFrame({ 
@@ -70,15 +70,15 @@ print(x['b'])
 8      Other  
 9      Other  
 
-### cat_other(x, drop, other_level='Other') . 
-port of forcats fct_other - replace levels with other . 
+### cat_other(x, drop, other_level='Other')  
+port of forcats fct_other - replace levels with other  
 
-arguments . 
+arguments  
 x - category object   
-drop - list of category levels to replace in x . 
-other_level - name for the 'other' level which dropped factor levels are converted to . 
+drop - list of category levels to replace in x  
+other_level - name for the 'other' level which dropped factor levels are converted to  
 
-returns . 
+returns  
 category object with dropped levels replaced by other_level
 ```
 x = pd.DataFrame({ 
@@ -102,11 +102,11 @@ print(x['b'])
 ### cat_anon(x)
 port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
 
-arguments . 
-x - category object . 
+arguments  
+x - category object  
 
-returns . 
-category object, with each category level replaced by a random number in range [0,10000000] . 
+returns  
+category object, with each category level replaced by a random number in range [0,10000000]  
 
 ```
 x = pd.DataFrame({
