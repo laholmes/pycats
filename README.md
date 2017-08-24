@@ -16,7 +16,7 @@ pandas, numpy
 ## usage
 ```
 import pandas as pd
-from pycats import lump, other    
+import pycats
 ```
 
 ## api
@@ -29,7 +29,7 @@ x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9], 
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
-x['b'] = as_cat.as_cat(x['b])
+x['b'] = pycats.as_cat(x['b'])
 
 ```
 
@@ -42,7 +42,7 @@ x = pd.DataFrame({
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
 x['b'] = x['b'].astype('category')
-x['b'] = lump.cat_lump(x['b'], 2)
+x['b'] = pycats.cat_lump(x['b'], 2)
 print(x['b'])
 ```
 0      foo  
@@ -64,7 +64,7 @@ x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9],
   b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
-x['b'] = other.cat_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
+x['b'] = pycats.cat_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
 print(x['b'])
 ```
 0      Other   
@@ -87,7 +87,7 @@ x = pd.DataFrame({
   'b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
 x['b'] = x['b'].astype('category')
-x['b'] = cat_anon(x['b'])
+x['b'] = pycats.cat_anon(x['b'])
 print(x['b'])
 ```
 0    1223194  
@@ -105,7 +105,6 @@ print(x['b'])
 ### cat_collapse
 port of forcats fct_collapse - Collapse factor levels into manually defined groups
 
-
 ```
 x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9],
@@ -118,6 +117,6 @@ groups = {
 }
 
 x['b'] = x['b'].astype('category')
-x['b'] = cat_collapse(x['b'], groups)
+x['b'] = pycats.cat_collapse(x['b'], groups)
 print(x['b'])
 ```
