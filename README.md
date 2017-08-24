@@ -135,8 +135,15 @@ print(x['b'])
 9     582436 
 
 
-### cat_collapse
+### cat_collapse(x, groups)
 port of forcats fct_collapse - Collapse factor levels into manually defined groups
+
+#### arguments
+x - category object
+groups - dictionary, with each key a new category level to use, and each value the list of category levels that the new level should be replaced with. the values are collapsed to the key.
+
+#### returns
+category object, with levels matching the specification in groups.
 
 #### example  
 ```
@@ -154,3 +161,18 @@ x['b'] = x['b'].astype('category')
 x['b'] = pycats.cat_collapse(x['b'], groups)
 print(x['b'])
 ```
+
+### cat_drop(x, in_place=False)
+thin wrapper on pandas remove_unused_categories. TBD may replace later based on performance
+
+##### arguments
+x - category object
+in_place - whether or not to drop unused categories inplace or return a copy of this categorical with unused categories dropped
+
+##### returns
+category object, with unused levels dropped
+
+##### example
+````
+````
+
