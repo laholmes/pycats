@@ -105,7 +105,8 @@ print(x['b'])
 7      bar  
 8      Other  
 9      baz2  
-
+  
+  
 ### cat_anon(x)
 port of forcats fct_anon - replace category level names with random integers. Maintains level groupings, does not preserve order or values of original categories
 
@@ -136,7 +137,8 @@ print(x['b'])
 8    2811679  
 9     582436 
 
-
+..
+..
 ### cat_collapse(x, groups)
 port of forcats fct_collapse - Collapse factor levels into manually defined groups
 
