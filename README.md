@@ -73,7 +73,8 @@ print(x['b'])
 7      bar  
 8      Other  
 9      Other  
-
+  
+    
 ### cat_other(x, drop, other_level='Other')  
 port of forcats fct_other - replace levels with other  
 
