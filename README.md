@@ -91,7 +91,7 @@ x = pd.DataFrame({
   'a': [4,1,9,6,2,3,5,7,2,9],
   b': ['foo', 'foo', 'foo', 'foo', 'foo', 'bar', 'bar', 'bar', 'baz', 'baz2']
 })
-x['b'] = pycats.cat_other(x['b'], ['foo', 'baz'], ['bar','baz2'])
+x['b'] = pycats.cat_other(x['b'], ['foo', 'baz'])
 print(x['b'])
 ```
 0      Other   
