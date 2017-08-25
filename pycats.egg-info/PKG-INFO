@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pycats
-Version: 0.1.17
+Version: 0.1.18
 Summary: tools for working with categories in pandas dataframes
 Home-page: https://github.com/laholmes/pycats
 Author: laurence holmes

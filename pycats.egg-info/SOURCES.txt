@@ -6,3 +6,8 @@ pycats.egg-info/PKG-INFO
 pycats.egg-info/SOURCES.txt
 pycats.egg-info/dependency_links.txt
 pycats.egg-info/top_level.txt
+test/test_as_cat.py
+test/test_cat_anon.py
+test/test_cat_collapse.py
+test/test_cat_lump.py
+test/test_cat_other.py

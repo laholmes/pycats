@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='pycats',
     packages=['pycats'],
-    version='0.1.17',
+    version='0.1.18',
     description='tools for working with categories in pandas dataframes',
     url='https://github.com/laholmes/pycats',
     author='laurence holmes',
