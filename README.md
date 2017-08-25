@@ -137,8 +137,7 @@ print(x['b'])
 8    2811679  
 9     582436 
 
-..
-..
+
 ### cat_collapse(x, groups)
 port of forcats fct_collapse - Collapse factor levels into manually defined groups
 
