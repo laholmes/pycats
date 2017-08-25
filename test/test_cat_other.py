@@ -1,6 +1,7 @@
 import unittest
 import pycats
 import pandas as pd
+import collections
 
 class TestCatOther(unittest.TestCase):
 
@@ -14,7 +15,8 @@ class TestCatOther(unittest.TestCase):
     def test_other(self):
         other_cats = pycats.cat_other(self.x['b'], ['foo', 'baz'])
         remaining_cats = ['bar', 'baz2', 'Other']
-        self.assertEqual(other_cats.cat.categories, remaining_cats)
+        self.assertTrue(collections.Counter(other_cats.cat.categories) == collections.Counter(remaining_cats))
+
 
 if __name__ == '__main__':
     unittest.main()

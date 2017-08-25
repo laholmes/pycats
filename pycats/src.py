@@ -1,7 +1,6 @@
 __all__ = ['cat_anon', 'cat_lump', 'as_cat', 'cat_collapse',
            'cat_other']
 
-
 import pandas as pd
 import numpy as np
 # Lump together least/most common factor levels into "other"
@@ -27,17 +26,15 @@ def cat_lump(f, n=None, other_level='Other', ties_method='first'):
     ties_methods = ['min', 'average', 'first']
     if ties_method not in ties_methods:
         raise ValueError('''ties_method not supported. Supported ties_methods are
-                         ["min", "average", "first']''')
+            ["min", "average", "first']''')
 
     levels = f.cat.categories
     counts = f.value_counts()
     
     if n is not None and 0 < n < len(counts):
-        print(n)
-        print(counts)
         lump_cutoff = counts[n]
         f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff, ties_method) else other_level)
-    
+
     return f.astype('category')
 
 
@@ -64,7 +61,7 @@ def cat_anon(f):
 
 
 def cat_other(f, drop, other_level = 'Other'):
-	f = f.apply(lambda row: row if row in drop else other_level)
+    f = f.apply(lambda row: row if row not in drop else other_level)
     return f.astype('category')
 
 def cat_drop(f, in_place=False):
