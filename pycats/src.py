@@ -3,22 +3,6 @@ __all__ = ['cat_anon', 'cat_lump', 'as_cat', 'cat_collapse',
 
 import pandas as pd
 import numpy as np
-# Lump together least/most common factor levels into "other"
-#
-# @param f A factor.
-#
-# @param n
-#   `n` preserves the most common `n` values.
-#       default n = None
-#   It there are ties, you will get at least `abs(n)` values.
-#
-# @param other_level Value of level used for "other" values. Always
-#   placed at end of levels.
-#
-# @param ties_method A character string specifying how ties are
-#   treated.
-#   supported options = ["min", "average", "first"]
-#   default = "first"
 
 
 # TODO: add support for ties method
@@ -34,7 +18,9 @@ def cat_lump(f, n=None, other_level='Other', ties_method='first'):
     if n is not None and 0 < n < len(counts):
         lump_cutoff = counts[n]
         f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff, ties_method) else other_level)
-
+    elif n is not None and (-1*len(counts)) < n < 0:
+        lump_cutoff = counts[n]
+        f = f.apply(lambda row: row if in_smallest(row, counts.to_dict(), lump_cutoff, ties_method) else other_level)
     return f.astype('category')
 
 
