@@ -18,6 +18,11 @@ class TestCatLump(unittest.TestCase):
         remaining_cats = ['foo', 'bar', 'Other']
         self.assertTrue(collections.Counter(lump_cats.cat.categories) == collections.Counter(remaining_cats))
 
+    def test_negative_lump(self):
+        as_cat = self.x['b'].astype('category')
+        lump_cats = pycats.cat_lump(as_cat, -2)
+        remaining_cats = ['baz', 'baz2', 'Other']
+        self.assertTrue(collections.Counter(lump_cats.cat.categories) == collections.Counter(remaining_cats))
 
 if __name__ == '__main__':
     unittest.main()
