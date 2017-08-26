@@ -43,10 +43,12 @@ x['b'] = pycats.as_cat(x['b'])
 ```
 
 ### cat_lump(x, n, other_level='Other')  
-port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
+port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name).
 
-Positive n preserves the most common n values. Negative n preserves the least
-common -n values
+Positive n preserves the most common n values. Negative n preserves the least common -n values.
+
+If there are ties for the most/least common factor levels, a random selection is made from the tying levels. For instance, if n = 3 and the level counts are [4,3,3,3,2,1], the level occurring 4 times is maintained, along with a random selection of 2 out of 3 of the levels which occur 3 times. Other tie resolution methods may be added (and parameterised) later.
+
 #### arguments  
 x - category object to lump  
 n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level. If n > 0, the most common n levels are preserved. If n < 0, the least common n levels are preserved
