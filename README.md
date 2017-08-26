@@ -2,9 +2,9 @@
 
 Tools for working with categorical variables in Pandas (port of features from R forcats package - https://cran.r-project.org/web/packages/forcats/index.html)
 
-currently in development - pre-alpha. Current version 0.1.18
+currently in development - pre-alpha. Current version 0.1.19
 
-pypi package reference here https://pypi.python.org/pypi/pycats/0.1.18
+pypi package reference here https://pypi.python.org/pypi/pycats/0.1.19
 
 ## installation
 ```
@@ -43,11 +43,13 @@ x['b'] = pycats.as_cat(x['b'])
 ```
 
 ### cat_lump(x, n, other_level='Other')  
-port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)  
+port of forcats fct_lump - Lump together least/most common factor levels in a categorical variable into "other" (or any custom name)
 
+Positive n preserves the most common n values. Negative n preserves the least
+common -n values
 #### arguments  
 x - category object to lump  
-n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level  
+n - threshold number of occurrences below which to lump into other level. i.e. for n = 2, levels occurring <= 2 in x will be lumped together into 'other' level. If n > 0, the most common n levels are preserved. If n < 0, the least common n levels are preserved
 other_level - name for the 'other' level which factor levels are converted to  
 
 #### returns  
