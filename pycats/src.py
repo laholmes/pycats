@@ -5,29 +5,41 @@ import pandas as pd
 import numpy as np
 
 
-# TODO: add support for ties method
-def cat_lump(f, n=None, other_level='Other', ties_method='first'):
-    ties_methods = ['min', 'average', 'first']
-    if ties_method not in ties_methods:
-        raise ValueError('''ties_method not supported. Supported ties_methods are
-            ["min", "average", "first']''')
-
+def cat_lump(f, n=None, other_level='Other'):
     levels = f.cat.categories
     counts = f.value_counts()
     
     if n is not None and 0 < n < len(counts):
-        lump_cutoff = counts[n]
-        f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff, ties_method) else other_level)
+        lump_cutoff = counts.iloc[n]
+
+        # checking for ties
+        if len(counts[counts == lump_cutoff]) > 1:
+            select_from_tied = n - len(counts[counts > lump_cutoff])
+            random_tie_cats = counts[counts == lump_cutoff].sample(select_from_tied).index.values
+            print(random_tie_cats)
+            f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff)
+                or row in random_tie_cats else other_level)
+        else:
+            f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff) else other_level)
     elif n is not None and (-1*len(counts)) < n < 0:
-        lump_cutoff = counts[n]
-        f = f.apply(lambda row: row if in_smallest(row, counts.to_dict(), lump_cutoff, ties_method) else other_level)
+        lump_cutoff = counts.iloc[n]
+        # checking for ties        
+        if len(counts[counts == lump_cutoff]) > 1:
+            select_from_tied = (-1*n) - len(counts[counts < lump_cutoff])
+            random_tie_cats = counts[counts == lump_cutoff].sample(select_from_tied).index.values
+            f = f.apply(lambda row: row if not in_largest(row, counts.to_dict(), lump_cutoff)
+                or row in random_tie_cats else other_level)
+        else:
+            f = f.apply(lambda row: row if not in_largest(row, counts.to_dict(), lump_cutoff) else other_level)
     return f.astype('category')
 
 
-# Given vector of counts, returns logical vector if in
-# smallest groups
-def in_smallest(level, counts, cutoff, ties_method):
+def in_smallest(level, counts, cutoff):
     return counts[level] <= cutoff
+
+
+def in_largest(level, counts, cutoff):
+    return counts[level] >= cutoff
 
 
 def cat_collapse(f, groups):
