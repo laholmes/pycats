@@ -16,7 +16,6 @@ def cat_lump(f, n=None, other_level='Other'):
         if len(counts[counts == lump_cutoff]) > 1:
             select_from_tied = n - len(counts[counts > lump_cutoff])
             random_tie_cats = counts[counts == lump_cutoff].sample(select_from_tied).index.values
-            print(random_tie_cats)
             f = f.apply(lambda row: row if not in_smallest(row, counts.to_dict(), lump_cutoff)
                 or row in random_tie_cats else other_level)
         else:
